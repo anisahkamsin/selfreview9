@@ -1,0 +1,58 @@
+#include <iostream>
+
+using namespace std;
+
+void printElements(int);
+void average(int[], int);
+void updateQuantity(int[][3]);
+
+int main()
+{
+    int quantity[5][3] = { {30,25,18}, {16,21,51}, {19,42,25}, {35,26,38}, {16,33,22} };
+
+    cout << endl << endl << " The original elements in quantity : " << endl;
+
+    for (int i = 0; i < 5; i++)
+     for (int j = 0; j < 3; j++)
+     {
+     	printElements(quantity[i][j]);
+	 }
+
+   for (int i = 0; i < 5; i++)
+   {
+   	average(quantity[i] , i);
+   } 
+
+   updateQuantity(quantity);
+
+}
+
+void printElements(int quant)
+{
+    cout << " " << quant;
+}
+
+void average(int quantityRow[], int row)
+{
+    int total = 0, ave;
+
+    for (int i = 0; i < 5; i++)
+    {
+    	total += quantityRow[i];
+	}
+     
+    ave = total / 3;
+
+    cout << endl << "The average value of the elements in row" << row + 1 << " : " << ave;
+}
+
+void updateQuantity(int newquantity[][3])
+{
+    for (int i = 0; i < 5; i++)
+    {
+    	for (int j = 0; j < 3; j++)
+    	{
+    		newquantity[i][j] = newquantity[i][j] + 20;
+		}
+	}
+}
